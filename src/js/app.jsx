@@ -42,6 +42,7 @@ export default class App extends React.Component {
           </div>
 
           <div className="form-group">
+          <label className="col-sm-2 control-label">Mortage Term Length (years)</label>
             <select className="form-control" name='term' value={this.state.term} onChange={this.handleInputChange}>
               <option value='15'>15</option>
               <option value='30'>30</option>
@@ -52,7 +53,7 @@ export default class App extends React.Component {
             <button name='submit' className="btn btn-default" onClick={this.calculate}>Calculate</button>
           </div>
           
-          <div id='output' name='output'> {this.state.submit} is your payment. </div> 
+          <div id='output' name='output'> ${this.state.submit} is your payment. </div> 
        
       </div>
     );
