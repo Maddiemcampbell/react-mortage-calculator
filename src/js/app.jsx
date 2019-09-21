@@ -30,32 +30,42 @@ export default class App extends React.Component {
       <div className='container'>
         
         <h3>Mortgage Calculator</h3>
+        <form className="form-horizontal">
 
           <div className="form-group">
-            <label className="col-sm-2 control-label">Mortgage Balance</label>
-            <input name='balance' className="form-control" type ='number' value={this.state.balance} onChange={this.handleInputChange}></input>
+            <label className="col-sm-2 control-label" htmlFor="exampleInputName2">Mortgage Balance</label>
+            <div className="col-sm-10">
+              <input name='balance' className="form-control" type ='number' value={this.state.balance} onChange={this.handleInputChange}></input>
+            </div>
           </div>
 
           <div className="form-group">
-            <label className="col-sm-2 control-label">Mortgage Rate</label>
-            <input name ='rate' className="form-control" type='number' step='0.01' value={this.state.rate} onChange={this.handleInputChange}></input>
+            <label className="col-sm-2 control-label" htmlFor="exampleInputName2">Mortgage Rate</label>
+            <div className="col-sm-10">
+              <input name ='rate' className="form-control" type='number' step='0.01' value={this.state.rate} onChange={this.handleInputChange}></input>
+            </div>
           </div>
 
           <div className="form-group">
-          <label className="col-sm-2 control-label">Mortage Term Length (years)</label>
-            <select className="form-control" name='term' value={this.state.term} onChange={this.handleInputChange}>
-              <option value='15'>15</option>
-              <option value='30'>30</option>
-            </select>
+          <label className="col-sm-2 control-label" htmlFor="exampleInputName2">Term (years)</label>
+            <div className="col-sm-offset-2 col-sm-10">
+              <select className="form-control" name='term' value={this.state.term} onChange={this.handleInputChange}>
+                <option value='15'>15</option>
+                <option value='30'>30</option>
+              </select>
+            </div>
           </div>
-
-          <div className="form-group">
-            <button name='submit' className="btn btn-default" onClick={this.calculate}>Calculate</button>
-          </div>
+          </form>
           
-          <div id='output' name='output'> ${this.state.submit} is your payment. </div> 
+          <div className="form-group">
+            <div className="col-sm-offset-2 col-sm-10">
+              <button name='submit' className="btn btn-default" onClick={this.calculate}>Calculate</button>
+            </div>
+          </div>
        
-      </div>
+          <div id='output' name='output'> ${this.state.submit} is your payment. </div> 
+          
+        </div>
     );
   }
 }
