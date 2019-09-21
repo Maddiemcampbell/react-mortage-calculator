@@ -28,10 +28,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div className='container'>
-      
-        <h2>Mortgage Calculator</h2>
         
-        <form className="form-horizontal">
+        <h3>Mortgage Calculator</h3>
 
           <div className="form-group">
             <label className="col-sm-2 control-label">Mortgage Balance</label>
@@ -53,10 +51,9 @@ export default class App extends React.Component {
           <div className="form-group">
             <button name='submit' className="btn btn-default" onClick={this.calculate}>Calculate</button>
           </div>
-        </form>
           
-        <div id='output' name='output'> {this.state.submit} is your payment. </div> 
-      
+          <div id='output' name='output'> {this.state.submit} is your payment. </div> 
+       
       </div>
     );
   }
