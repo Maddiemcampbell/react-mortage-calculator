@@ -29,30 +29,35 @@ export default class App extends React.Component {
     return (
       <div className='container'>
       
-      <h2>Mortgage Calculator</h2>
-      
-      <div class="form-group">
-        <label className="col-sm-2 control-label">Mortgage Balance</label>
+        <h2>Mortgage Calculator</h2>
         
-        <input name='balance' type ='number' value={this.state.balance} onChange={this.handleInputChange}></input>
-        
-        <label className="col-sm-2 control-label">Mortgage Rate</label>
-        
-        <input name ='rate' type='number' step='0.01' value={this.state.rate} onChange={this.handleInputChange}></input>
-        <select name='term' value={this.state.term} onChange={this.handleInputChange}>
-          <option value='15'>15</option>
-          <option value='30'>30</option>
-        </select>
-       
-        <button name='submit' value={this.state.submit} onChange={this.handleInputChange} onClick={this.calculate}>Submit</button>
+        <form className="form-horizontal">
+
+          <div className="form-group">
+            <label className="col-sm-2 control-label">Mortgage Balance</label>
+            <input name='balance' className="form-control" type ='number' value={this.state.balance} onChange={this.handleInputChange}></input>
+          </div>
+
+          <div className="form-group">
+            <label className="col-sm-2 control-label">Mortgage Rate</label>
+            <input name ='rate' className="form-control" type='number' step='0.01' value={this.state.rate} onChange={this.handleInputChange}></input>
+          </div>
+
+          <div className="form-group">
+            <select className="form-control" name='term' value={this.state.term} onChange={this.handleInputChange}>
+              <option value='15'>15</option>
+              <option value='30'>30</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <button name='submit' className="btn btn-default" onClick={this.calculate}>Calculate</button>
+          </div>
+        </form>
+          
+        <div id='output' name='output'> {this.state.submit} is your payment. </div> 
       
       </div>
-      
-      <div name='output' id='output'>
-        {this.state.submit} is your payment.
-      </div>
-    
-    </div>    
     );
   }
 }
