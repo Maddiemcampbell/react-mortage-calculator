@@ -18,11 +18,12 @@ export default class App extends React.Component {
   }
 
   calculate (e) {
-    let balance=Number(this.state.balance);
-    let rate=Number(this.state.rate);
-    let term=Number(this.state.term);
-    let monthlyPayment = ((balance*(rate/100)+balance)/(12*term)).toFixed(2);
-    this.setState({[e.target.name]: monthlyPayment})
+    e.preventDefault();
+      var rate = Number(this.state.rate)/100/12;
+      var balance = Number(this.state.balance);
+      var term = Number(this.state.term)*12;
+      var paymentDue = Number((balance*((rate*Math.pow((1+rate ),term ))/(Math.pow(1+rate,term)-1)))).toFixed(2);
+      this.setState({submit: paymentDue});
   }
 
   render() {
@@ -47,11 +48,11 @@ export default class App extends React.Component {
           </div>
 
           <div className="form-group">
-          <label className="col-sm-2 control-label" htmlFor="exampleInputName2">Term (years)</label>
-            <div className="col-sm-offset-2 col-sm-10">
+          <label className="col-sm-2 control-label" htmlFor="exampleInputName2" name='term'>Term (years)</label>
+            <div name='term' className="col-sm-offset-2 col-sm-10" >
               <select className="form-control" name='term' value={this.state.term} onChange={this.handleInputChange}>
-                <option value='15'>15</option>
-                <option value='30'>30</option>
+                <option value='15' name='term'>15</option>
+                <option value='30'name='term'>30</option>
               </select>
             </div>
           </div>

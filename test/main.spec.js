@@ -14,7 +14,7 @@ app.listen(8888);
 const url = 'http://localhost:8888/index.html';
 
 describe('Mortgage Calculator', function () {
-  this.timeout(6500);
+  this.timeout(8000);
   this.slow(3000);
 
   it('returns the correct status code', () => axios.get(url)
